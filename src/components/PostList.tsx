@@ -1,3 +1,4 @@
+import Post from "./Post"
 
 interface PostObject {
     id: number;
@@ -30,12 +31,7 @@ function PostList() {
         <div>
             <h1>Posts</h1>
             {samplePosts.map((post) => (
-                <div key={post.id}>
-                    <h2>{post.title}</h2>
-                    <p>{post.author}</p>
-                    <p>{post.preview}</p>
-                    <p>{post.date}</p>
-                </div>
+                <Post key={post.id} post={post} />
             ))}
         </div>
     )
