@@ -4,7 +4,7 @@ import PostList from "./components/PostList"
 
 function App() {
   return (
-    <div>
+    <div style={{fontFamily:'system-ui', minHeight:'100vh', backgroundColor:'lightgray' }}>
       <Header/>
       <PostList/>
     </div>
