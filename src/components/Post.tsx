@@ -1,3 +1,6 @@
+import { memo } from "react";
+
+
 interface PostObject {
     id: number;
     title: string;
@@ -23,4 +26,4 @@ function Post({ post, highlight }: BlogPost) {
     )
 }
 
-export default Post
+export default memo(Post)
