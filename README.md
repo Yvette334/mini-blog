@@ -1,75 +1,116 @@
-# React + TypeScript + Vite
+# Dev Insights - Mini Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A platform where employees can share quick tips, insights, and updates related to web development. This platform uses React,TypeScript and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## Project Setup and installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+This project uses vite.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+1. clone the repository:
+```
+git clone https://github.com/Yvette334/mini-blog.git
+cd mini-blog
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Install dependencies:
+```
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+
+3. Start the server:
+
 
 ```
+npm run dev
+```
+
+
+4. In browser open `http://localhost:5173/`
+
+
+5. (Optional) Build for production
+```
+npm run build
+```
+
+
+## Project Structure
+```
+src/
+├── components/
+│   ├── Header.tsx        # Logo and navigation link
+│   ├── Post.tsx           # Displays a single post's details
+│   ├── PostList.tsx       # Displays the list of sample posts
+│   └── withLogger.tsx     # Higher-Order Component for mount/unmount logging
+├── styles/
+│   └── Header.css         # External CSS for the Header component
+├── App.tsx                 # Root component
+├── App.css
+└── main.tsx                # Entry point
+```
+
+
+## How to Test
+
+
+- In the header it displays the logo "Dev Insights" and a link "New Post".
+- Two sample posts are below the header, with a title, author, content preview, date.
+- The post by Alex Banks has a different background color for conditional styling.
+- Open the browser console(F12) to see log messages when a component mounts and unmounts.
+
+
+## Component types: Functional vs. Class
+
+
+All Components in this project are **functional components** because:
+
+
+- Functional component is a simpler way to define a component.
+- They offer simplicity, performance and flexibility with less code than class components.
+- In react functional components are the preferred choice(current standard) for the react project.
+- Function components are easy to read and write.
+- Using a class component would mean adding extra code which would make the project size bigger only.
+
+
+ ## styling methods
+
+
+ I used two styling methods
+
+
+1. **External CSS:** It was used on the header component (Header.css)
+2. **Inline styles:** Used it for the post and PostList component where I applied style directly to the attribute 'style'.
+
+
+## Optimization strategies
+
+
+**React.memo**: wrapped the Post component in the memo to prevent unnecessary re-renders.
+
+
+**Unique key prop:** Added the `key={post.id}` on the PostList so that every post has its unique id and can track the items correctly.
+
+
+## Higher-Order Component
+
+
+**withLogger:** Is used to wrap a component and logs a message to the console when a component is mounted and unmounted using the `useEffect` Hook.
+
+
+## Challenges
+
+
+ **HOC Initializations:** Since this was my first time creating a Higher-Order Component, I had to learn what it was and how it worked and looked complicated.
+ I solved this by knowing how it works as a reusable component and how to add the props
+
+
+## External libraries
+**React:** Library for building user interface.
+**Vite:** A build tool and development server used to run and bundle web projects.
+**Typescript:** Adds static typing to help catch errors.
