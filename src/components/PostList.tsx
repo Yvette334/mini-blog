@@ -1,4 +1,5 @@
 import Post from "./Post";
+import withLogger from "./withLogger";
 
 interface PostObject {
   id: number;
@@ -39,4 +40,4 @@ function PostList() {
     </div>
   );
 }
-export default PostList;
+export default withLogger(PostList,'PostList');
