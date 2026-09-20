@@ -1,8 +1,10 @@
+import '../styles/Header.css'
+
 function Header() {
     return (
         <header>
-            <div>Dev Insights</div>
-            <a href="#">New Post</a>
+            <div className = 'logo'>Dev Insights</div>
+            <a href="#" className='nav-link'>New Post</a>
         </header>
     )
 }
