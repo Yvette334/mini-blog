@@ -106,8 +106,8 @@ All Components in this project are **functional components** because:
 ## Challenges
 
 
- **HOC Initializations:** Since this was my first time creating a Higher-Order Component, I had to learn what it was and how it worked and looked complicated.
- I solved this by knowing how it works as a reusable component and how to add the props
+ **HOC Initializations:** Since this was my first time creating a Higher-Order Component, I had to learn what it was and how it worked and looked complicated cause when I looked up the video for it it was about HOC for login and we need the one that will track mounting and unmounting.
+ I solved this by first understanding how it works and making sure that I got the basic for it and also being able to use useEffect in order to see anything in my console when the page loads
 
 
 ## External libraries
